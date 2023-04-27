@@ -21,11 +21,20 @@ namespace EsercizioFinale.Controllers
         {
             var userAttamptToLogin = Users.FirstOrDefault(u => u.UserName == username && u.Password == password);
 
-            if (userAttamptToLogin != null) return RedirectToAction("LoginSuccess", "Login");
+
+            if (userAttamptToLogin != null)
+            {
+                return RedirectToAction("LoginSuccess", "Login");
+            }
             else return View();
         }
 
         public IActionResult LoginSuccess()
+        {
+            return View();
+        }
+
+        public IActionResult LogOut()
         {
             return View();
         }
